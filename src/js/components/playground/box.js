@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { EDGES, COLORS } from '../../consts/playground'
-import Dot from './dot'
-import Edge from './edge'
+import { EDGES, COLORS, PLAYERS } from '../../consts/playground'
+import {Edge, Dot, Square} from './rects'
 
 class Box extends Component {
 
@@ -17,9 +16,12 @@ class Box extends Component {
             leftEdge: false,
             rightEdge: false,
             topEdge: false,
-            bottomEdge: false
+            bottomEdge: false,
+            //state of box
+            fillColor: COLORS.BACKGROUND
         };
     }
+
     //Set all relationship between neighbours
     componentDidMount() {
         this.state.leftNeighbour && this.state.leftNeighbour.ref.current.setState({
@@ -36,51 +38,59 @@ class Box extends Component {
         });
     }
 
-    neighboursWalk() {
-
-    }
-
-    checkVictory() {
-        console.log('checked');
-    }
-
     onEdgeClick = (edge) => {
         if(!this.state[edge]) {
             this.setState({
-                [edge]: true
+                [edge]: this.props.parent.state.currentPlayer
             });
             if(this.state[EDGES.NEIGHBOUR(edge)]) {
                 this.state[EDGES.NEIGHBOUR(edge)].setState({
-                    [EDGES.REVERSE(edge)]: true
+                    [EDGES.REVERSE(edge)]: this.props.parent.state.currentPlayer
                 });
-                this.state[EDGES.NEIGHBOUR(edge)].checkVictory();
             }
+            //as setState is async
+            setTimeout(() => {
+                this.props.parent.changePlayer()
+            }, 0);
         }
-        this.checkVictory();
     };
 
+    checkVictory() {
+        if(this.state.leftEdge && this.state.rightEdge && this.state.topEdge && this.state.bottomEdge) {
+            this.state.fillColor === COLORS.BACKGROUND && this.setState({
+                fillColor: this.props.parent.state.currentPlayer
+            });
+            this.props.onBoxFilled();
+        }
+    }
+
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.dir(this)
+        this.checkVictory();
     }
 
     render() {
         return <g>
+            <Square x={this.props.x}
+                    y={this.props.y}
+                    color={this.state.fillColor}
+            />
+
             <Edge x={this.props.x}
                   y={this.props.y}
-                  color={this.state.topEdge ? COLORS.PLAYER_1 : COLORS.BACKGROUND}
+                  color={this.state.topEdge ? this.state.topEdge : COLORS.BACKGROUND}
                   onClick={() => this.onEdgeClick(EDGES.TOP)}/>
             <Edge x={this.props.x}
                   y={this.props.y}
-                  color={this.state.leftEdge ? COLORS.PLAYER_1 : COLORS.BACKGROUND}
+                  color={this.state.leftEdge ? this.state.leftEdge : COLORS.BACKGROUND}
                   h={true}
                   onClick={() => this.onEdgeClick(EDGES.LEFT)}/>
             <Edge x={this.props.x}
                   y={this.props.y + 1}
-                  color={this.state.bottomEdge ? COLORS.PLAYER_1 : COLORS.BACKGROUND}
+                  color={this.state.bottomEdge ? this.state.bottomEdge : COLORS.BACKGROUND}
                   onClick={() => this.onEdgeClick(EDGES.BOTTOM)}/>
             <Edge x={this.props.x + 1}
                   y={this.props.y}
-                  color={this.state.rightEdge ? COLORS.PLAYER_1 : COLORS.BACKGROUND}
+                  color={this.state.rightEdge ? this.state.rightEdge : COLORS.BACKGROUND}
                   h={true}
                   onClick={() => this.onEdgeClick(EDGES.RIGHT)}/>
 

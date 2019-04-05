@@ -23,14 +23,18 @@ const EDGES = {
 };
 
 const COLORS = {
-    PLAYER_1: "#ed2f2f",
-    PLAYER_2: "#2fed68",
     DOT: "#000000",
-    BACKGROUND: "#ffffff"
+    BACKGROUND: "#ffffff",
+};
+
+const PLAYERS = {
+    PLAYER_1: "#ed2f2f",
+    PLAYER_2: "#2fed68"
 };
 
 export {
     SIZES,
     COLORS,
-    EDGES
+    EDGES,
+    PLAYERS
 };

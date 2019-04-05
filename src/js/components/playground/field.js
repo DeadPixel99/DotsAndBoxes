@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import Box from './box'
-import { SIZES } from '../../consts/playground'
+import { SIZES, PLAYERS } from '../../consts/playground'
 
 class Field extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            grid: Field.buildGrid()
+            grid: this.buildGrid(),
+            currentPlayer: PLAYERS.PLAYER_1,
+            score1: 0,
+            score2: 0,
         }
     }
 
@@ -19,7 +22,19 @@ class Field extends Component {
         </svg>
     }
 
-    static buildGrid() {
+    onBoxFilled = () => {
+
+    };
+
+    changePlayer() {
+        this.setState(prev => ({
+            currentPlayer: prev.currentPlayer == PLAYERS.PLAYER_1
+                ? PLAYERS.PLAYER_2
+                : PLAYERS.PLAYER_1
+        }))
+    }
+
+    buildGrid() {
         let grid = [];
         for(let i = 0; i < SIZES.GRID_SIZE-1; i++) {
             grid.push([]);
@@ -30,8 +45,9 @@ class Field extends Component {
                     key={i + j}
                     l={(i > 0) ? grid[i-1][j] : null}
                     t={(j > 0) ? grid[i][j - 1] : null}
-                    ref={React.createRef()}
-                />)
+                    parent={this}
+                    onBoxFilled={this.onBoxFilled}
+                    ref={React.createRef()}/>)
             }
         }
         return grid;
