@@ -22,8 +22,11 @@ class Field extends Component {
         </svg>
     }
 
-    onBoxFilled = () => {
-
+    onBoxFilled = (player) => {
+        alert('WIn! ' + player);
+        this.setState(prev => ({
+            currentPlayer: player
+        }))
     };
 
     changePlayer() {

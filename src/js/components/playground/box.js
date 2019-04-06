@@ -18,7 +18,7 @@ class Box extends Component {
             topEdge: false,
             bottomEdge: false,
             //state of box
-            fillColor: COLORS.BACKGROUND
+            winner: COLORS.BACKGROUND
         };
     }
 
@@ -48,32 +48,29 @@ class Box extends Component {
                     [EDGES.REVERSE(edge)]: this.props.parent.state.currentPlayer
                 });
             }
-            //as setState is async
-            setTimeout(() => {
-                this.props.parent.changePlayer()
-            }, 0);
+            setTimeout(() =>
+                this.props.parent.changePlayer(), 0)
         }
     };
 
-    checkVictory() {
-        if(this.state.leftEdge && this.state.rightEdge && this.state.topEdge && this.state.bottomEdge) {
-            this.state.fillColor === COLORS.BACKGROUND && this.setState({
-                fillColor: this.props.parent.state.currentPlayer
-            });
-            this.props.onBoxFilled();
-        }
-    }
-
+    //check if all edges drawn
     componentDidUpdate(prevProps, prevState, snapshot) {
-        this.checkVictory();
+        if(this.state.leftEdge && this.state.rightEdge && this.state.topEdge && this.state.bottomEdge) {
+            if(this.state.winner === COLORS.BACKGROUND) {
+                this.setState({
+                    winner: this.props.parent.state.currentPlayer
+                });
+                setTimeout(() =>
+                    this.props.onBoxFilled(this.state.winner), 0)
+            }
+        }
     }
 
     render() {
         return <g>
             <Square x={this.props.x}
                     y={this.props.y}
-                    color={this.state.fillColor}
-            />
+                    color={this.state.winner}/>
 
             <Edge x={this.props.x}
                   y={this.props.y}
