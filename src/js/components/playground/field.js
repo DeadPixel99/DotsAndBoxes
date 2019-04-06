@@ -9,9 +9,22 @@ class Field extends Component {
         this.state = {
             grid: this.buildGrid(),
             currentPlayer: PLAYERS.PLAYER_1,
-            score1: 0,
-            score2: 0,
         }
+    }
+
+    onBoxFilled = (player) => {
+        this.setState({
+            currentPlayer: player,
+        });
+        this.props.onScoreChange(player);
+    };
+
+    changePlayer() {
+        this.setState(prev => ({
+            currentPlayer: prev.currentPlayer === PLAYERS.PLAYER_1
+                ? PLAYERS.PLAYER_2
+                : PLAYERS.PLAYER_1
+        }))
     }
 
     render() {
@@ -20,21 +33,6 @@ class Field extends Component {
             viewBox={`0 0 ${SIZES.FIELD_SIZE} ${SIZES.FIELD_SIZE}`} width={800} >
             { this.state.grid }
         </svg>
-    }
-
-    onBoxFilled = (player) => {
-        alert('WIn! ' + player);
-        this.setState(prev => ({
-            currentPlayer: player
-        }))
-    };
-
-    changePlayer() {
-        this.setState(prev => ({
-            currentPlayer: prev.currentPlayer == PLAYERS.PLAYER_1
-                ? PLAYERS.PLAYER_2
-                : PLAYERS.PLAYER_1
-        }))
     }
 
     buildGrid() {
@@ -49,7 +47,6 @@ class Field extends Component {
                     l={(i > 0) ? grid[i-1][j] : null}
                     t={(j > 0) ? grid[i][j - 1] : null}
                     parent={this}
-                    onBoxFilled={this.onBoxFilled}
                     ref={React.createRef()}/>)
             }
         }

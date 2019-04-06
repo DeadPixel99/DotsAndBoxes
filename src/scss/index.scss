@@ -1,6 +1,34 @@
+.game-field {
+    margin: 50px;
+    width: 40%;
+    height: auto;
+    text-align: center;
+}
+
 .edge {
-    &:hover {
+
+    &.hover:hover {
         stroke: rgba(0,0,0,.5);
+    }
+
+}
+
+.app-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.scores-bar {
+
+    .p1 {
+        color: #ed2f2f;
+    }
+
+    .p2 {
+        color: #2fed68;
     }
 }
 

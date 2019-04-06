@@ -1,7 +1,7 @@
 const SIZES = {
     FIELD_SIZE: 500,
     GRID_SIZE: 5,
-    GRID_OFFSET: 5
+    GRID_OFFSET: 7
 };
 
 const EDGES = {
@@ -15,6 +15,7 @@ const EDGES = {
             case "rightEdge": return "leftEdge";
             case "topEdge": return "bottomEdge";
             case "bottomEdge": return "topEdge";
+            default: return null
         }
     },
     NEIGHBOUR: (self) => {

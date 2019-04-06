@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { EDGES, COLORS, PLAYERS } from '../../consts/playground'
-import {Edge, Dot, Square} from './rects'
+import { EDGES, COLORS } from '../../consts/playground'
+import { Dot, Square } from './stateless_rects'
+import Edge from './edge';
+
 
 class Box extends Component {
 
@@ -13,10 +15,10 @@ class Box extends Component {
             topNeighbour: this.props.t,
             bottomNeighbour: null,
             //state of box edges
-            leftEdge: false,
-            rightEdge: false,
-            topEdge: false,
-            bottomEdge: false,
+            leftEdge: null,
+            rightEdge: null,
+            topEdge: null,
+            bottomEdge: null,
             //state of box
             winner: COLORS.BACKGROUND
         };
@@ -61,7 +63,7 @@ class Box extends Component {
                     winner: this.props.parent.state.currentPlayer
                 });
                 setTimeout(() =>
-                    this.props.onBoxFilled(this.state.winner), 0)
+                    this.props.parent.onBoxFilled(this.state.winner), 0)
             }
         }
     }
