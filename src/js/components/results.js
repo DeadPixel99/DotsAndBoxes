@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './../../scss/results.scss'
 
+
 class Results extends Component {
 
     constructor(props) {
@@ -20,7 +21,7 @@ class Results extends Component {
     render() {
         return (<div className={`results ${this.state.willUnmount && 'skew-it'}`}>
             <h1>{`${this.props.p1 > this.props.p2 ? 'Player 1' : 'Player 2'}`} WON!</h1>
-            <button onClick={this.reset}>play again</button>
+            <button onClick={this.reset}>Play again</button>
         </div>)
     }
 }

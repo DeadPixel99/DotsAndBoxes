@@ -1,6 +1,7 @@
 import { SIZES, COLORS } from '../../consts/playground'
 import React from "react";
 
+
 const Dot = (props) => {
     return (<circle
         fill={COLORS.DOT}
@@ -9,6 +10,7 @@ const Dot = (props) => {
         r={SIZES.GRID_OFFSET}
     />)
 };
+
 
 const Square = (props) => {
     return (<rect
@@ -19,6 +21,7 @@ const Square = (props) => {
         fill={props.color}
     />)
 };
+
 
 export {
     Dot, Square

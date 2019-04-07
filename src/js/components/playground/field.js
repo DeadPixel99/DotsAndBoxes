@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Box from './box'
-import { SIZES, PLAYERS, FIRST_PLAYER } from '../../consts/playground'
+import { SIZES, PLAYERS, FIRST_PLAYER, VIEW_BOX } from '../../consts/playground'
 import './../../../scss/gamefield.scss'
+
 
 class Field extends Component {
 
@@ -36,7 +37,7 @@ class Field extends Component {
     render() {
         return <svg
             className={`game-field ${this.props.willUnmount ? 'downscale' : ''}`}
-            viewBox={`0 0 ${SIZES.FIELD_SIZE + SIZES.GRID_OFFSET * 2} ${SIZES.FIELD_SIZE + SIZES.GRID_OFFSET * 2}`}>
+            viewBox={VIEW_BOX}>
             { this.state.grid }
         </svg>
     }

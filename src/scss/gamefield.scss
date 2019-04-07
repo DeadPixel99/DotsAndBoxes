@@ -8,6 +8,10 @@
   animation: upscale 1s;
 }
 
+rect {
+    opacity: 0.2;
+}
+
 .edge {
 
   &.hover:hover {

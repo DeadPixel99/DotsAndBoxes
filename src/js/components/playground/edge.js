@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {COLORS, SIZES} from "../../consts/playground";
 
+
 class Edge extends Component{
 
     constructor(props) {

@@ -57,8 +57,8 @@ class Box extends Component {
 
     //check if all edges drawn
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.state.leftEdge && this.state.rightEdge && this.state.topEdge && this.state.bottomEdge) {
-            if(this.state.winner === COLORS.BACKGROUND) {
+        if(this.state.winner === COLORS.BACKGROUND) {
+            if(this.state.leftEdge && this.state.rightEdge && this.state.topEdge && this.state.bottomEdge) {
                 this.setState({
                     winner: this.props.parent.state.currentPlayer
                 });

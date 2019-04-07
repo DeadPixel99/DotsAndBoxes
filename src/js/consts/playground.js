@@ -4,13 +4,12 @@ const SIZES = {
     GRID_OFFSET: 7
 };
 
-const MAX_SCORE = SIZES.GRID_SIZE * SIZES.GRID_SIZE;
-
 const EDGES = {
     LEFT: "leftEdge",
     RIGHT: "rightEdge",
     TOP: "topEdge",
     BOTTOM: "bottomEdge",
+    //helper functions
     REVERSE: (self) => {
         switch (self) {
             case "leftEdge": return "rightEdge";
@@ -36,12 +35,13 @@ const PLAYERS = {
 };
 
 const FIRST_PLAYER = PLAYERS.PLAYER_1;
+const MAX_SCORE = SIZES.GRID_SIZE * SIZES.GRID_SIZE;
+const VIEW_BOX = `0 0 ${SIZES.FIELD_SIZE + SIZES.GRID_OFFSET * 2} ${SIZES.FIELD_SIZE + SIZES.GRID_OFFSET * 2}`;
 
 export {
-    SIZES,
-    COLORS,
     EDGES,
-    PLAYERS,
+    COLORS,
     MAX_SCORE,
-    FIRST_PLAYER
+    SIZES, VIEW_BOX,
+    PLAYERS, FIRST_PLAYER
 };
