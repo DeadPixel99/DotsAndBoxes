@@ -1,10 +1,10 @@
 const SIZES = {
     FIELD_SIZE: 500,
-    GRID_SIZE: 5,
+    GRID_SIZE: 4,
     GRID_OFFSET: 7
 };
 
-const MAX_SCORE = (SIZES.GRID_SIZE - 1) * (SIZES.GRID_SIZE - 1);
+const MAX_SCORE = SIZES.GRID_SIZE * SIZES.GRID_SIZE;
 
 const EDGES = {
     LEFT: "leftEdge",

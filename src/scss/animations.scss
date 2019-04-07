@@ -1,0 +1,30 @@
+@keyframes sparkling-border {
+    0% {border: 1px solid rgba(0,0,0,1)}
+    50% {border: 1px solid rgba(0,0,0,.1)}
+    100% {border: 1px solid rgba(0,0,0,1)}
+}
+
+@keyframes skew-it {
+  from { transform: skew(0deg) scale(1)}
+  to { transform: skew(90deg) scale(0)}
+}
+
+@keyframes upscale {
+    from { transform: scale(0)}
+    to { transform: scale(1)}
+}
+
+@keyframes downscale {
+    from { transform: scale(1, 1)}
+    to { transform: scale(2, 0)}
+}
+
+.skew-it {
+  transform: skew(90deg) scale(0);
+  animation: 1s skew-it;
+}
+
+.downscale {
+  transform: skew(90deg) scale(0);
+  animation: 0.5s downscale;
+}

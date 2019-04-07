@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {PLAYERS, FIRST_PLAYER} from "../consts/playground";
+import './../../scss/scores.scss'
+
 
 class Scores extends Component {
 
@@ -21,8 +23,12 @@ class Scores extends Component {
     render() {
         return (<div className='scores-bar'>
             <h1>Dots 'n boxes</h1>
-            <h2 className={`p1 ${PLAYERS.PLAYER_1 == this.state.current && 'current-p'}`}>Player 1: {this.props.p1}</h2>
-            <h2 className={`p2 ${PLAYERS.PLAYER_2 == this.state.current && 'current-p'}`}>Player 2: {this.props.p2}</h2>
+            <div className={PLAYERS.PLAYER_1 == this.state.current ? 'current-p' : ''}>
+                <h2 className='p1'>Player 1: {this.props.p1}</h2>
+            </div>
+            <div className={PLAYERS.PLAYER_2 == this.state.current ? 'current-p' : ''}>
+                <h2 className='p2'>Player 2: {this.props.p2}</h2>
+            </div>
         </div>)
     }
 }

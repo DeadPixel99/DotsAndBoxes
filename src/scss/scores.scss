@@ -1,0 +1,21 @@
+@import "animations";
+
+.scores-bar {
+
+  margin: 50px;
+  height: 220px;
+
+  .current-p {
+    border: 1px solid black;
+    animation: sparkling-border 2.5s infinite;
+  }
+
+
+  .p1 {
+    color: #ed2f2f;
+  }
+
+  .p2 {
+    color: #2fed68;
+  }
+}

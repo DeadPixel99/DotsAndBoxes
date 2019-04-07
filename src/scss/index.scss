@@ -1,20 +1,13 @@
-.game-field {
-    margin: 50px;
-    width: 40%;
-    height: 40%;
-    text-align: center;
+@import "animations";
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
-.results {
-    @extend .game-field;
-}
-
-.edge {
-
-    &.hover:hover {
-        stroke: rgba(0,0,0,.5);
-    }
-
+h1, h2, h3, h4, h5 {
+    user-select: none;
+    font-family: "DejaVu Sans Mono", sans-serif;
 }
 
 .app-container {
@@ -22,31 +15,4 @@
     justify-content: center;
     text-align: center;
     flex-wrap: wrap;
-}
-
-
-.scores-bar {
-
-    margin: 50px;
-
-    .current-p {
-        border: 1px solid black;
-    }
-
-    .p1 {
-        color: #ed2f2f;
-    }
-
-    .p2 {
-        color: #2fed68;
-    }
-}
-
-@media screen and (max-width: 420px){
-
-    .game-field {
-        width: 95%;
-        height: 95%;
-        margin: 0;
-    }
 }

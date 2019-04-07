@@ -1,0 +1,10 @@
+@import "gamefield";
+
+.results {
+  @extend .game-field;
+
+  button {
+
+  }
+
+}
