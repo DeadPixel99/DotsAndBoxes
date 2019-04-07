@@ -5,6 +5,10 @@
     text-align: center;
 }
 
+.results {
+    @extend .game-field;
+}
+
 .edge {
 
     &.hover:hover {
@@ -20,7 +24,14 @@
     flex-wrap: wrap;
 }
 
+
 .scores-bar {
+
+    margin: 50px;
+
+    .current-p {
+        border: 1px solid black;
+    }
 
     .p1 {
         color: #ed2f2f;
@@ -31,3 +42,11 @@
     }
 }
 
+@media screen and (max-width: 420px){
+
+    .game-field {
+        width: 95%;
+        height: 95%;
+        margin: 0;
+    }
+}

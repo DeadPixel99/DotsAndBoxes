@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Field from './playground/field'
 import Scores from './scores'
 import Results from './results'
-import {PLAYERS, MAX_SCORE } from "../consts/playground";
+import {PLAYERS, MAX_SCORE} from "../consts/playground";
 
 
 const initState = {
@@ -17,6 +17,7 @@ class Game extends Component {
 
     constructor(props) {
         super(props);
+        this.scoresRef = React.createRef();
         this.state = initState
     }
 
@@ -29,14 +30,15 @@ class Game extends Component {
 
     reset = () => {
         this.setState(initState);
+        this.scoresRef && this.scoresRef.current.reset();
     };
 
     render() {
         return <div className='app-container'>
-            <Scores p1={this.state[PLAYERS.PLAYER_1]} p2={this.state[PLAYERS.PLAYER_2]} />
+            <Scores p1={this.state[PLAYERS.PLAYER_1]} p2={this.state[PLAYERS.PLAYER_2]} ref={this.scoresRef} />
             { this.state.showResult
-                ? <Results p1={this.state[PLAYERS.PLAYER_1]} p2={this.state[PLAYERS.PLAYER_2]} back={this.reset}/>
-                : <Field onScoreChange={this.onScoreChange}/>
+                ? <Results p1={this.state[PLAYERS.PLAYER_1]} p2={this.state[PLAYERS.PLAYER_2]} back={this.reset} />
+                : <Field onScoreChange={this.onScoreChange} scores={this.scoresRef} />
             }
         </div>
     }

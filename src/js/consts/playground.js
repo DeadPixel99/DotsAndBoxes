@@ -35,10 +35,13 @@ const PLAYERS = {
     PLAYER_2: "#2fed68"
 };
 
+const FIRST_PLAYER = PLAYERS.PLAYER_1;
+
 export {
     SIZES,
     COLORS,
     EDGES,
     PLAYERS,
-    MAX_SCORE
+    MAX_SCORE,
+    FIRST_PLAYER
 };

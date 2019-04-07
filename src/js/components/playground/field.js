@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Box from './box'
-import { SIZES, PLAYERS } from '../../consts/playground'
+import { SIZES, PLAYERS, FIRST_PLAYER } from '../../consts/playground'
 
 class Field extends Component {
 
@@ -8,8 +8,8 @@ class Field extends Component {
         super(props);
         this.state = {
             grid: this.buildGrid(),
-            currentPlayer: PLAYERS.PLAYER_1,
-        }
+            currentPlayer: FIRST_PLAYER,
+        };
     }
 
     onBoxFilled = (player) => {
@@ -25,6 +25,11 @@ class Field extends Component {
                 ? PLAYERS.PLAYER_2
                 : PLAYERS.PLAYER_1
         }))
+    }
+
+    //sync current player with scoreboard
+    componentDidUpdate() {
+        this.props.scores.current.setCurrentPlayer(this.state.currentPlayer)
     }
 
     render() {
