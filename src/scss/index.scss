@@ -1,7 +1,7 @@
 .game-field {
     margin: 50px;
     width: 40%;
-    height: auto;
+    height: 40%;
     text-align: center;
 }
 
@@ -15,7 +15,6 @@
 
 .app-container {
     display: flex;
-    align-items: center;
     justify-content: center;
     text-align: center;
     flex-wrap: wrap;

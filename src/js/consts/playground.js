@@ -4,6 +4,8 @@ const SIZES = {
     GRID_OFFSET: 7
 };
 
+const MAX_SCORE = (SIZES.GRID_SIZE - 1) * (SIZES.GRID_SIZE - 1);
+
 const EDGES = {
     LEFT: "leftEdge",
     RIGHT: "rightEdge",
@@ -37,5 +39,6 @@ export {
     SIZES,
     COLORS,
     EDGES,
-    PLAYERS
+    PLAYERS,
+    MAX_SCORE
 };

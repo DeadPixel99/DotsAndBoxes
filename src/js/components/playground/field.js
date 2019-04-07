@@ -14,7 +14,7 @@ class Field extends Component {
 
     onBoxFilled = (player) => {
         this.setState({
-            currentPlayer: player,
+            currentPlayer: player
         });
         this.props.onScoreChange(player);
     };
@@ -37,13 +37,14 @@ class Field extends Component {
 
     buildGrid() {
         let grid = [];
+        let key = 0;
         for(let i = 0; i < SIZES.GRID_SIZE-1; i++) {
             grid.push([]);
             for(let j = 0; j < SIZES.GRID_SIZE-1; j++) {
                 grid[i].push(<Box
                     x={i}
                     y={j}
-                    key={i + j}
+                    key={key++}
                     l={(i > 0) ? grid[i-1][j] : null}
                     t={(j > 0) ? grid[i][j - 1] : null}
                     parent={this}
