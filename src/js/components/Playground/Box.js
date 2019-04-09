@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { EDGES, COLORS } from '../../consts/playground'
-import { Dot, Square } from './stateless_rects'
-import Edge from './edge';
+import { Dot, Square } from './StatelessRects'
+import Edge from './Edge';
 
 
 class Box extends Component {
@@ -69,35 +69,40 @@ class Box extends Component {
     }
 
     render() {
-        return <g>
+        return (<g>
             <Square x={this.props.x}
                     y={this.props.y}
-                    color={this.state.winner}/>
+                    color={this.state.winner}
+            />
 
             <Edge x={this.props.x}
                   y={this.props.y}
                   color={this.state.topEdge ? this.state.topEdge : COLORS.BACKGROUND}
-                  onClick={() => this.onEdgeClick(EDGES.TOP)}/>
+                  onClick={() => this.onEdgeClick(EDGES.TOP)}
+            />
             <Edge x={this.props.x}
                   y={this.props.y}
                   color={this.state.leftEdge ? this.state.leftEdge : COLORS.BACKGROUND}
                   h={true}
-                  onClick={() => this.onEdgeClick(EDGES.LEFT)}/>
+                  onClick={() => this.onEdgeClick(EDGES.LEFT)}
+            />
             <Edge x={this.props.x}
                   y={this.props.y + 1}
                   color={this.state.bottomEdge ? this.state.bottomEdge : COLORS.BACKGROUND}
-                  onClick={() => this.onEdgeClick(EDGES.BOTTOM)}/>
+                  onClick={() => this.onEdgeClick(EDGES.BOTTOM)}
+            />
             <Edge x={this.props.x + 1}
                   y={this.props.y}
                   color={this.state.rightEdge ? this.state.rightEdge : COLORS.BACKGROUND}
                   h={true}
-                  onClick={() => this.onEdgeClick(EDGES.RIGHT)}/>
+                  onClick={() => this.onEdgeClick(EDGES.RIGHT)}
+            />
 
-            <Dot x={this.props.x} y={this.props.y}/>
-            <Dot x={this.props.x + 1} y={this.props.y}/>
-            <Dot x={this.props.x} y={this.props.y + 1}/>
-            <Dot x={this.props.x + 1} y={this.props.y + 1}/>
-        </g>
+            <Dot x={this.props.x} y={this.props.y} />
+            <Dot x={this.props.x + 1} y={this.props.y} />
+            <Dot x={this.props.x} y={this.props.y + 1} />
+            <Dot x={this.props.x + 1} y={this.props.y + 1} />
+        </g>)
     }
 }
 

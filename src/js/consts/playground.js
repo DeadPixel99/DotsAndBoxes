@@ -30,8 +30,8 @@ const COLORS = {
 };
 
 const PLAYERS = {
-    PLAYER_1: "#ed2f2f",
-    PLAYER_2: "#2fed68"
+    PLAYER_1: "#5179ba",//"#ed2f2f",
+    PLAYER_2: "#579152"//"#2fed68"
 };
 
 const FIRST_PLAYER = PLAYERS.PLAYER_1;

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import Field from './playground/field'
-import Scores from './scores'
-import Results from './results'
+import Field from './Playground/Field'
+import Scores from './Scores'
+import Results from './Results'
 import {PLAYERS, MAX_SCORE} from "../consts/playground";
 
 
@@ -40,19 +40,21 @@ class Game extends Component {
     };
 
     render() {
-        return <div className='app-container'>
+        return (<div className='app-container'>
             <Scores p1={this.state[PLAYERS.PLAYER_1]} p2={this.state[PLAYERS.PLAYER_2]} ref={this.scoresRef} />
             { this.state.showResult
                 ? <Results
                     p1={this.state[PLAYERS.PLAYER_1]}
                     p2={this.state[PLAYERS.PLAYER_2]}
-                    back={this.reset} />
+                    back={this.reset}
+                />
                 : <Field
                     onScoreChange={this.onScoreChange}
                     willUnmount={this.state.willUnmount}
-                    scores={this.scoresRef} />
+                    scores={this.scoresRef}
+                />
             }
-        </div>
+        </div>)
     }
 }
 

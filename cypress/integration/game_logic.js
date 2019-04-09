@@ -26,7 +26,7 @@ describe('Gameplay', function () {
         cy.get('.scores-bar div:nth-child(3)').should('have.class', 'current-p');
     });
 
-    it('Win screen after filled playground', function () {
+    it('Win screen after filled Playground', function () {
         cy.get('.game-field g line').click({ multiple: true, force: true });
         cy.get('.game-field').should('not.exist');
         cy.get('.results').should('exist');

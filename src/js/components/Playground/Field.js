@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Box from './box'
+import Box from './Box'
 import { SIZES, PLAYERS, FIRST_PLAYER, VIEW_BOX } from '../../consts/playground'
 import './../../../scss/gamefield.scss'
 
@@ -14,13 +14,6 @@ class Field extends Component {
         };
     }
 
-    onBoxFilled = (player) => {
-        this.setState({
-            currentPlayer: player
-        });
-        this.props.onScoreChange(player);
-    };
-
     changePlayer() {
         this.setState(prev => ({
             currentPlayer: prev.currentPlayer === PLAYERS.PLAYER_1
@@ -34,14 +27,7 @@ class Field extends Component {
         this.props.scores.current.setCurrentPlayer(this.state.currentPlayer)
     }
 
-    render() {
-        return <svg
-            className={`game-field ${this.props.willUnmount ? 'downscale' : ''}`}
-            viewBox={VIEW_BOX}>
-            { this.state.grid }
-        </svg>
-    }
-
+    //build array of boxes for mounting
     buildGrid() {
         let grid = [];
         let key = 0;
@@ -59,6 +45,21 @@ class Field extends Component {
             }
         }
         return grid;
+    }
+
+    onBoxFilled = (player) => {
+        this.setState({
+            currentPlayer: player
+        });
+        this.props.onScoreChange(player);
+    };
+
+    render() {
+        return (<svg
+            className={`game-field ${this.props.willUnmount ? 'downscale' : ''}`}
+            viewBox={VIEW_BOX}>
+            { this.state.grid }
+        </svg>)
     }
 }
 

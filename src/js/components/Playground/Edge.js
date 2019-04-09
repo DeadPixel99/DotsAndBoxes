@@ -22,7 +22,7 @@ class Edge extends Component{
     
     render() {
         return (<line
-            className={`edge ${ !this.state.clicked && 'hover' }`}
+            className={`edge ${ !this.state.clicked ? 'hover' : ''}`}
             fill={COLORS.DOT}
             x1={SIZES.FIELD_SIZE / SIZES.GRID_SIZE * this.props.x + SIZES.GRID_OFFSET}
             y1={SIZES.FIELD_SIZE / SIZES.GRID_SIZE * this.props.y + SIZES.GRID_OFFSET}
@@ -31,7 +31,7 @@ class Edge extends Component{
                 : 0 )}
             y2={(SIZES.FIELD_SIZE / SIZES.GRID_SIZE * this.props.y + SIZES.GRID_OFFSET) + (this.props.h
                 ? SIZES.FIELD_SIZE / SIZES.GRID_SIZE
-                : 0) }
+                : 0)}
             stroke={this.props.color}
             strokeWidth={SIZES.GRID_OFFSET}
             onClick={this.onClick}
