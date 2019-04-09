@@ -1,5 +1,5 @@
 # Dots and boxes game
-### Latest version of game locates at './public', but you can rebuild it using commands.
+### Latest version of game locates at './docs', but you can rebuild it using commands.
 #### To run game: 
 Open it on github pages: https://deadpixel99.github.io/DotsAndBoxes/
 #### Or:
