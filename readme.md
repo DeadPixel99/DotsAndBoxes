@@ -1,6 +1,8 @@
 # Dots and boxes game
 ### Latest version of game locates at './public', but you can rebuild it using commands.
 #### To run game: 
+Open it on github pages: https://deadpixel99.github.io/DotsAndBoxes/
+#### Or:
 1. Clone git repository
 2. Install dev dependencies using npm install
 3. Open index.html from './public' in any compatible browser, or host it via webpack-dev-server on localhost.
