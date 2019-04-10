@@ -11,6 +11,15 @@ class Results extends Component {
         }
     }
 
+    winner() {
+        if(this.props.p1 == this.props.p2) {
+            return "Friendship"
+        }
+        return this.props.p1 > this.props.p2
+            ? "Player 1"
+            : "Player 2"
+    }
+
     reset = () => {
         this.setState({ willUnmount: true});
         setTimeout(() => {
@@ -20,7 +29,7 @@ class Results extends Component {
 
     render() {
         return (<div className={`results ${this.state.willUnmount && 'skew-it'}`}>
-            <h1>{`${this.props.p1 > this.props.p2 ? 'Player 1' : 'Player 2'}`} WON!</h1>
+            <h1>{this.winner()} WON!</h1>
             <button onClick={this.reset}>Play again</button>
         </div>)
     }

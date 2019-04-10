@@ -1,7 +1,7 @@
 const SIZES = {
     FIELD_SIZE: 500,
     GRID_SIZE: 4,
-    GRID_OFFSET: 7
+    GRID_OFFSET: 10
 };
 
 const EDGES = {
@@ -23,15 +23,15 @@ const EDGES = {
         return self.replace('Edge', 'Neighbour')
     }
 };
-
+//color of dots and field background
 const COLORS = {
     DOT: "#000000",
     BACKGROUND: "#ffffff",
 };
-
+//colors of players
 const PLAYERS = {
-    PLAYER_1: "#5179ba",//"#ed2f2f",
-    PLAYER_2: "#579152"//"#2fed68"
+    PLAYER_1: "#1E90FF",
+    PLAYER_2: "#DC143C"
 };
 
 const FIRST_PLAYER = PLAYERS.PLAYER_1;

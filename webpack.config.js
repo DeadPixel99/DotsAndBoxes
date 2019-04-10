@@ -32,7 +32,7 @@ module.exports = {
     devServer: {
         stats: 'errors-only',
         historyApiFallback: {
-            index: './public/index.html'
+            index: './docs/index.html'
         }
     },
     mode: 'production'
